@@ -4,11 +4,11 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { motion } from "framer-motion"
-import { useLocationStore } from "@/lib/store"
+// import { useLocationStore } from "@/lib/store"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const { location, setLocation } = useLocationStore()
+  // const { location, setLocation } = useLocationStore()
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
@@ -32,7 +32,7 @@ export default function Navbar() {
                 transition={{ duration: 0.5 }}
                 className="h-12 w-auto"
               >
-                <svg width="120" height="40" viewBox="0 0 120 40" className="fill-teal-500">
+                <svg width="220" height="40"  viewBox="0 0 120 40" className="fill-teal-500">
                   <path
                     d="M10.5,15.5c0,0,4.5-3.8,9.8-3.8c5.4,0,9.7,3.8,9.7,3.8s4.5,3.8,9.8,3.8c5.4,0,9.7-3.8,9.7-3.8"
                     strokeWidth="3"
@@ -46,7 +46,7 @@ export default function Navbar() {
                     fill="none"
                   />
                   <text x="50" y="25" fontSize="20" fontWeight="bold" fill="currentColor">
-                    Aquae-vitae
+                    Aquae Vitae
                   </text>
                 </svg>
               </motion.div>

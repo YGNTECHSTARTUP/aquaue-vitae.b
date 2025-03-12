@@ -77,7 +77,7 @@ export default function ComplaintPage() {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-2 text-teal-600">Submit a Complaint</h1>
         <p className="text-gray-600 mb-8">
-          We're sorry you're having an issue. Please fill out the form below and we'll address your concern as soon as
+          We&apos;re sorry you&apos;re having an issue. Please fill out the form below and we&apos;ll address your concern as soon as
           possible.
         </p>
 

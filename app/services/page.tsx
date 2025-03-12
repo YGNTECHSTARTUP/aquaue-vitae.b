@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar"
 import Announcement from "@/components/announcement"
 import { motion } from "framer-motion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Image from "next/image"
 
 export default function ServicesPage() {
   const { location } = useLocationStore()
@@ -105,7 +106,7 @@ export default function ServicesPage() {
                   className="flex flex-col md:flex-row gap-8 bg-white rounded-lg shadow-md p-6"
                 >
                   <div className="md:w-1/3 flex justify-center">
-                    <img src={product.image || "/placeholder.svg"} alt={product.name} className="h-64 object-contain" />
+                    <Image src={product.image || "/placeholder.svg"} width={500} height={500} alt={product.name} className="h-64 object-contain" />
                   </div>
                   <div className="md:w-2/3">
                     <h2 className="text-2xl font-bold text-teal-600 mb-2">{product.name}</h2>

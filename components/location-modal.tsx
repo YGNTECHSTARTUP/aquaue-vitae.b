@@ -18,6 +18,7 @@ const cities = [
   { name: "Visakhapatnam", icon: <MapPin className="h-6 w-6" /> },
 ]
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function LocationModal({ onLocationSelect, onClose }: LocationModalProps) {
   const [isDetecting, setIsDetecting] = useState(false)
 

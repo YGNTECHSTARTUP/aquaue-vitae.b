@@ -38,11 +38,11 @@ export default function Home() {
               <div className="flex items-center space-x-6">
                 <a href="tel:18001211007" className="flex items-center text-sm">
                   <span className="mr-2">📞</span>
-                  1800 121 1007
+                  7569232144
                 </a>
                 <a href="mailto:wecare@Aquae-vitae.co.in" className="flex items-center text-sm">
                   <span className="mr-2">✉️</span>
-                  wecare@Aquae-vitae.co.in
+                  sagarkum.penki@gmail.com
                 </a>
               </div>
             </div>

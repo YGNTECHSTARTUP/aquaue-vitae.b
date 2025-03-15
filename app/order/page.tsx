@@ -30,6 +30,8 @@ interface LocationDetails {
   village: string
 }
 
+
+
 export default function OrderPage() {
   const { location } = useLocationStore()
   const [step, setStep] = useState(1)
@@ -44,7 +46,7 @@ export default function OrderPage() {
   const [orderItems, setOrderItems] = useState<OrderItem[]>([
     {
       id: 1,
-      name: "Aquae-vitae Natural Mineral Water",
+      name: "Aquae-vitae's Alkaline With Added Minerals ",
       price500ml: 10,
       price1000ml: 20,
       quantity500ml: 0,
@@ -52,20 +54,13 @@ export default function OrderPage() {
     },
     {
       id: 2,
-      name: "Aquae-vitae Vedica",
-      price500ml: 15,
-      price1000ml: 30,
+      name: "Aquae-vitae's B (Boiled) Water",
+      price500ml: 10,
+      price1000ml: 20,
       quantity500ml: 0,
       quantity1000ml: 0,
     },
-    {
-      id: 3,
-      name: "Aquae-vitae Soda",
-      price500ml: 12,
-      price1000ml: 22,
-      quantity500ml: 0,
-      quantity1000ml: 0,
-    },
+   
   ])
 
   // Calculate totals
@@ -381,7 +376,7 @@ export default function OrderPage() {
             </div>
 
             {/* Product cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {orderItems.map((item) => (
                 <motion.div
                   key={item.id}

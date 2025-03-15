@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export default function Announcement() {
   return (
-    <div className="bg-teal-600 text-white py-2 overflow-hidden">
+    <div className="bg-teal-400 text-white py-2 overflow-hidden">
       <motion.div
         initial={{ x: "100%" }}
         animate={{ x: "-100%" }}

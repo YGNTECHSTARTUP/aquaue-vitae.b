@@ -5,7 +5,7 @@ import Image from "next/image"
 
 export default function Banner() {
   return (
-    <div className="bg-teal-500 overflow-hidden">
+    <div className="bg-[#326872] overflow-hidden">
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="flex flex-col md:flex-row items-center">
           <motion.div

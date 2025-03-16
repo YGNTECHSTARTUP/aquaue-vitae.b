@@ -32,8 +32,8 @@ export default function Banner() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:w-1/2 flex justify-center"
           >
-            <div className="relative h-[300px] w-[300px] md:h-[400px] md:w-[400px]">
-              <Image src="/placeholder.svg?height=400&width=400" alt="Aquae-vitae Bottle" fill className="object-contain" />
+            <div className=" ">
+              <Image src="/ban1.jpg" alt="Aquae-vitae Bottle"  className="object-contain" height={300} width={350} />
             </div>
           </motion.div>
         </div>

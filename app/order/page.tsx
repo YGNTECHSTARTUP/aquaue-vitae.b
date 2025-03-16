@@ -28,12 +28,12 @@ interface LocationDetails {
   district: string
   mandal: string
   village: string
+  address:string
 }
 
 
 
 export default function OrderPage() {
-  const { location } = useLocationStore()
   const [step, setStep] = useState(1)
   const [locationDetails, setLocationDetails] = useState<LocationDetails>({
     country: "India",
@@ -41,6 +41,7 @@ export default function OrderPage() {
     district: "",
     mandal: "",
     village: "",
+    address:""
   })
 
   const [orderItems, setOrderItems] = useState<OrderItem[]>([
@@ -62,6 +63,15 @@ export default function OrderPage() {
     },
    
   ])
+  const { location } = useLocationStore()
+  const hasHydrated = useLocationStore.persist.hasHydrated// Zustand hydration che.ck
+console.log(hasHydrated)
+  if (!hasHydrated) {
+    return <div>Loading location...</div>; // or null
+  }
+  
+  console.log(location)
+ 
 
   // Calculate totals
   const total500ml = orderItems.reduce((sum, item) => sum + item.quantity500ml, 0)
@@ -163,16 +173,16 @@ export default function OrderPage() {
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <span className="text-sm text-gray-600">Your Location: </span>
-            <span className="font-medium">{location}</span>
+            <span className="font-medium">{location?.city}</span>
           </div>
           <div className="flex items-center space-x-6">
             <a href="tel:18001211007" className="flex items-center text-sm">
               <span className="mr-2">📞</span>
-              1800 121 1007
+              7569232144
             </a>
             <a href="mailto:wecare@Aquae-vitae.co.in" className="flex items-center text-sm">
               <span className="mr-2">✉️</span>
-              wecare@Aquae-vitae.co.in
+              sagarkum.penki@gmail.com
             </a>
           </div>
         </div>
@@ -220,6 +230,7 @@ export default function OrderPage() {
             className="bg-white rounded-lg shadow-md p-6 mb-8"
           >
             <h2 className="text-xl font-semibold mb-4">Delivery Location Details</h2>
+        
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">
@@ -300,6 +311,20 @@ export default function OrderPage() {
                   onChange={handleLocationChange}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+              </div>
+              <div>
+                <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={locationDetails.address}
+                  onChange={handleLocationChange}
+                  required
+                  className="w-full px-4 py-2 border min-h-20 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
             </div>

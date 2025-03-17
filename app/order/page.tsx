@@ -64,11 +64,7 @@ export default function OrderPage() {
    
   ])
   const { location } = useLocationStore()
-  const hasHydrated = useLocationStore.persist.hasHydrated// Zustand hydration che.ck
-console.log(hasHydrated)
-  if (!hasHydrated) {
-    return <div>Loading location...</div>; // or null
-  }
+
   
   console.log(location)
  
@@ -202,7 +198,7 @@ const discountAmount = originalTotal - discountedTotal;
               <span className="mr-2">✉️</span>
               sagarkum.penki@gmail.com
             </a>
-          </div>
+          </div>da
         </div>
       </div>
 

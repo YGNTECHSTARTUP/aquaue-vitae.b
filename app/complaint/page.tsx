@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-
+import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { useLocationStore } from "@/lib/store"
 import Navbar from "@/components/navbar"

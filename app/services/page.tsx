@@ -5,7 +5,7 @@ import Announcement from "@/components/announcement"
 import { motion } from "framer-motion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from "next/image"
-
+import { Button } from "@/components/ui/button"
 export default function ServicesPage() {
   const { location } = useLocationStore()
 
@@ -109,9 +109,9 @@ export default function ServicesPage() {
                         ))}
                       </div>
                     </div>
-                    <button className="bg-teal-500 text-white px-6 py-2 rounded-md hover:bg-teal-600 transition-colors">
+                    <Button className="bg-teal-500 text-white px-6 py-2 rounded-md hover:bg-teal-600 transition-colors">
                       View Details
-                    </button>
+                    </Button>
                   </div>
                 </motion.div>
               ))}
@@ -139,9 +139,9 @@ export default function ServicesPage() {
                     </div>
                     <h3 className="text-xl font-bold text-teal-600 mb-2">{service.name}</h3>
                     <p className="text-gray-600 mb-4">{service.description}</p>
-                    <button className="w-full bg-teal-100 text-teal-800 py-2 rounded-md font-medium hover:bg-teal-200 transition-colors">
+                    <Button className="w-full bg-teal-100 text-teal-800 py-2 rounded-md font-medium hover:bg-teal-200 transition-colors">
                       Learn More
-                    </button>
+                    </Button>
                   </div>
                 </motion.div>
               ))}

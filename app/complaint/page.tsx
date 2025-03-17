@@ -1,4 +1,5 @@
 "use client"
+import { Button } from "@/components/ui/button"
 
 import type React from "react"
 import { Input } from "@/components/ui/input"
@@ -165,7 +166,7 @@ export default function ComplaintPage() {
                   value={formData.complaintType}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="w-full px-4 py-2 border bg-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                 >
                   <option value="">Select a complaint type</option>
                   <option value="product">Product Quality</option>
@@ -177,7 +178,7 @@ export default function ComplaintPage() {
               </div>
 
               <div className="md:col-span-2">
-                <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="description" className="block text-sm font-medium bg-white text-gray-700 mb-1">
                   Complaint Description
                 </label>
                 <textarea
@@ -193,13 +194,13 @@ export default function ComplaintPage() {
             </div>
 
             <div className="mt-6">
-              <button
+              <Button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-teal-500 text-white py-3 rounded-md font-medium hover:bg-teal-600 transition-colors disabled:opacity-70"
               >
                 {isSubmitting ? "Submitting..." : "Submit Complaint"}
-              </button>
+              </Button>
             </div>
           </form>
         )}

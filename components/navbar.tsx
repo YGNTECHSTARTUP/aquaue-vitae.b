@@ -69,19 +69,19 @@ export default function Navbar() {
 
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              <button className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors">
+              <Button className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors">
                 Login
-              </button>
+              </Button>
             </div>
           </div>
 
           <div className="md:hidden">
-            <button
+            <Button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-teal-500 focus:outline-none"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -108,9 +108,9 @@ export default function Navbar() {
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="flex items-center px-5">
-              <button className="w-full bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors">
+              <Button className="w-full bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors">
                 Login
-              </button>
+              </Button>
             </div>
           </div>
         </motion.div>

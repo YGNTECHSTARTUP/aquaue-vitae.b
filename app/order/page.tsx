@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
-
+import { Button } from "@/components/ui/button"
 import type React from "react"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
@@ -344,13 +344,13 @@ const discountAmount = originalTotal - discountedTotal;
             </div>
 
             <div className="mt-6 flex justify-end">
-              <button
+              <Button
                 onClick={() => setStep(2)}
                 disabled={!isLocationFormValid()}
                 className="flex items-center bg-teal-500 text-white px-6 py-2 rounded-md hover:bg-teal-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Next <ChevronRight className="ml-2 h-4 w-4" />
-              </button>
+              </Button>
             </div>
           </motion.div>
         )}
@@ -460,12 +460,12 @@ const discountAmount = originalTotal - discountedTotal;
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-sm">500ml (₹{item.price500ml})</span>
                         <div className="flex items-center border rounded-md">
-                          <button
+                          <Button
                             className="px-2 py-1 border-r"
                             onClick={() => handleQuantityChange(item.id, "500ml", item.quantity500ml - 1)}
                           >
                             <Minus className="h-4 w-4" />
-                          </button>
+                          </Button>
                           <Input
                             type="number"
                             min="0"
@@ -475,24 +475,24 @@ const discountAmount = originalTotal - discountedTotal;
                             }
                             className="w-16 text-center py-1 border-0 focus:outline-none focus:ring-0"
                           />
-                          <button
+                          <Button
                             className="px-2 py-1 border-l"
                             onClick={() => handleQuantityChange(item.id, "500ml", item.quantity500ml + 1)}
                           >
                             <Plus className="h-4 w-4" />
-                          </button>
+                          </Button>
                         </div>
                       </div>
 
                       <div className="flex justify-between items-center">
                         <span className="text-sm">1000ml (₹{item.price1000ml})</span>
                         <div className="flex items-center border rounded-md">
-                          <button
+                          <Button
                             className="px-2 py-1 border-r"
                             onClick={() => handleQuantityChange(item.id, "1000ml", item.quantity1000ml - 1)}
                           >
                             <Minus className="h-4 w-4" />
-                          </button>
+                          </Button>
                           <Input
                             type="number"
                             min="0"
@@ -502,12 +502,12 @@ const discountAmount = originalTotal - discountedTotal;
                             }
                             className="w-16 text-center py-1 border-0 focus:outline-none focus:ring-0"
                           />
-                          <button
+                          <Button
                             className="px-2 py-1 border-l"
                             onClick={() => handleQuantityChange(item.id, "1000ml", item.quantity1000ml + 1)}
                           >
                             <Plus className="h-4 w-4" />
-                          </button>
+                          </Button>
                         </div>
                       </div>
                     </div>
@@ -596,19 +596,19 @@ const discountAmount = originalTotal - discountedTotal;
             </div>
 
             <div className="flex justify-between">
-              <button
+              <Button
                 onClick={() => setStep(1)}
                 className="flex items-center bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
               >
                 Back
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => setStep(3)}
                 disabled={!isOrderValid()}
                 className="flex items-center bg-teal-500 text-white px-6 py-2 rounded-md hover:bg-teal-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Next <ChevronRight className="ml-2 h-4 w-4" />
-              </button>
+              </Button>
             </div>
           </motion.div>
         )}
@@ -704,25 +704,25 @@ const discountAmount = originalTotal - discountedTotal;
             </div>
 
             <div className="flex justify-between">
-              <button
+              <Button
                 onClick={() => setStep(2)}
                 className="flex items-center bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 transition-colors"
               >
                 Back
-              </button>
+              </Button>
               <div className="flex space-x-4">
-                <button
+                <Button
                   onClick={generateReceipt}
                   className="flex items-center bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors"
                 >
                   <Download className="mr-2 h-4 w-4" /> Download Receipt
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={() => alert("Order placed successfully!")}
                   className="flex items-center bg-teal-500 text-white px-6 py-2 rounded-md hover:bg-teal-600 transition-colors"
                 >
                   Place Order <Check className="ml-2 h-4 w-4" />
-                </button>
+                </Button>
               </div>
             </div>
           </motion.div>

@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar"
 import Banner from "@/components/banner"
 import Announcement from "@/components/announcement"
 import { useLocationStore } from "@/lib/store"
-
+import { Button } from "@/components/ui/button"
 export default function Home() {
   const { location, setLocation } = useLocationStore()
   const [showModal, setShowModal] = useState(true)
@@ -43,12 +43,12 @@ export default function Home() {
               <div className="flex items-center space-x-2">
                 <span className="text-sm text-gray-600">Your Location:</span>
                 <span className="font-medium text-gray-800">{location?.city}</span>
-                <button
+                <Button
                   onClick={() => setShowModal(true)}
                   className="text-sm text-blue-500 underline hover:text-blue-700 transition"
                 >
                   Change Location
-                </button>
+                </Button>
               </div>
 
               {/* Contact Info */}
@@ -87,9 +87,9 @@ export default function Home() {
                 <p className="text-gray-600">
                   Pure, safe and healthy balanced drinking water for your daily needs.
                 </p>
-                <button className="mt-4 bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition-colors">
+                <Button className="mt-4 bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition-colors">
                   Learn More
-                </button>
+                </Button>
               </div>
 
               {/* Boiled Water Card */}
@@ -98,9 +98,9 @@ export default function Home() {
                   Aquae-vitae&apos;s B (Boiled) Water
                 </h3>
                 <p className="text-gray-600">Healthy & Purified Natural Water</p>
-                <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                <Button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
                   Learn More
-                </button>
+                </Button>
               </div>
 
               {/* Optional Soft Drink Card */}
@@ -108,9 +108,9 @@ export default function Home() {
               <div className="bg-purple-50 p-6 rounded-lg shadow-md text-center">
                 <h3 className="text-xl font-semibold mb-4">Carbonated Soft Drinks</h3>
                 <p className="text-gray-600">Refreshing fizzy beverages for a perfect pick-me-up.</p>
-                <button className="mt-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition-colors">
+                <Button className="mt-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition-colors">
                   Learn More
-                </button>
+                </Button>
               </div>
               */}
             </div>

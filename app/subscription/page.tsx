@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar"
 import Announcement from "@/components/announcement"
 import { motion } from "framer-motion"
 import { Check } from "lucide-react"
-
+import { Button } from "@/components/ui/button"
 export default function SubscriptionPage() {
   const { location } = useLocationStore()
   const [selectedPlan, setSelectedPlan] = useState<number | null>(null)
@@ -99,7 +99,7 @@ export default function SubscriptionPage() {
                     </li>
                   ))}
                 </ul>
-                <button
+                <Button
                   className={`w-full mt-8 py-3 rounded-md font-medium transition-colors ${
                     selectedPlan === plan.id
                       ? "bg-teal-600 text-white"
@@ -108,7 +108,7 @@ export default function SubscriptionPage() {
                   onClick={() => setSelectedPlan(plan.id)}
                 >
                   {selectedPlan === plan.id ? "Selected" : "Select Plan"}
-                </button>
+                </Button>
               </div>
             </motion.div>
           ))}
@@ -116,9 +116,9 @@ export default function SubscriptionPage() {
 
         {selectedPlan && (
           <div className="mt-12 text-center">
-            <button className="bg-teal-500 text-white px-8 py-3 rounded-md font-medium hover:bg-teal-600 transition-colors">
+            <Button className="bg-teal-500 text-white px-8 py-3 rounded-md font-medium hover:bg-teal-600 transition-colors">
               Proceed to Checkout
-            </button>
+            </Button>
           </div>
         )}
       </div>

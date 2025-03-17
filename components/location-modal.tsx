@@ -109,7 +109,7 @@ export default function LocationModal({ onLocationSelect, onClose }: LocationMod
           <p className="text-gray-600 mt-2">Choose your city or detect automatically</p>
         </div>
 
-        <button
+        <Button
           onClick={detectLocation}
           disabled={isDetecting}
           className="w-full flex items-center justify-center space-x-2 bg-teal-500 text-white py-3 rounded-lg mb-6 hover:bg-teal-600 transition-colors"
@@ -122,14 +122,14 @@ export default function LocationModal({ onLocationSelect, onClose }: LocationMod
               <span>Detect My Location</span>
             </>
           )}
-        </button>
+        </Button>
 
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           <AnimatePresence>
             {visibleCities.map((city) => (
-              <motion.button
+              <motion.Button
                 key={city}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -138,28 +138,28 @@ export default function LocationModal({ onLocationSelect, onClose }: LocationMod
               >
                 <MapPin className="h-6 w-6 text-teal-500 mb-1" />
                 <span className="font-medium text-sm text-center">{city}</span>
-              </motion.button>
+              </motion.Button>
             ))}
           </AnimatePresence>
         </div>
 
         <div className="mt-4 flex justify-center">
-          <button
+          <Button
             onClick={() => setShowAll((prev) => !prev)}
             className="flex items-center space-x-1 text-sm text-teal-600 hover:underline"
           >
             <span>{showAll ? "Show Less" : "Show More"}</span>
             {showAll ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-          </button>
+          </Button>
         </div>
 
         <div className="mt-6 flex justify-center">
-          <button
+          <Button
             onClick={onClose}
             className="text-sm text-gray-500 hover:text-gray-700 hover:underline"
           >
             Cancel
-          </button>
+          </Button>
         </div>
       </motion.div>
     </div>

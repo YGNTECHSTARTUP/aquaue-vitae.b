@@ -2,7 +2,7 @@
 "use client"
 
 import type React from "react"
-
+import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { useLocationStore } from "@/lib/store"
 import Navbar from "@/components/navbar"
@@ -198,7 +198,7 @@ const discountAmount = originalTotal - discountedTotal;
               <span className="mr-2">✉️</span>
               sagarkum.penki@gmail.com
             </a>
-          </div>da
+          </div>
         </div>
       </div>
 
@@ -250,7 +250,7 @@ const discountAmount = originalTotal - discountedTotal;
                 <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">
                   Country
                 </label>
-                <input
+                <Input
                   type="text"
                   id="country"
                   name="country"
@@ -287,7 +287,7 @@ const discountAmount = originalTotal - discountedTotal;
                 <label htmlFor="district" className="block text-sm font-medium text-gray-700 mb-1">
                   District
                 </label>
-                <input
+                <Input
                   type="text"
                   id="district"
                   name="district"
@@ -302,7 +302,7 @@ const discountAmount = originalTotal - discountedTotal;
                 <label htmlFor="mandal" className="block text-sm font-medium text-gray-700 mb-1">
                   Mandal
                 </label>
-                <input
+                <Input
                   type="text"
                   id="mandal"
                   name="mandal"
@@ -317,7 +317,7 @@ const discountAmount = originalTotal - discountedTotal;
                 <label htmlFor="village" className="block text-sm font-medium text-gray-700 mb-1">
                   Village
                 </label>
-                <input
+                <Input
                   type="text"
                   id="village"
                   name="village"
@@ -331,7 +331,7 @@ const discountAmount = originalTotal - discountedTotal;
                 <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
                   Address
                 </label>
-                <input
+                <Input
                   type="text"
                   id="address"
                   name="address"
@@ -364,7 +364,7 @@ const discountAmount = originalTotal - discountedTotal;
           >
             <h2 className="text-xl font-semibold mb-4">Place Your Order</h2>
 
-            {/* Bulk quantity inputs */}
+            {/* Bulk quantity Inputs */}
             <div className="mb-8 overflow-x-auto">
   <h3 className="text-lg font-medium mb-3">Order Summary</h3>
   <table className="min-w-full border border-gray-200">
@@ -391,7 +391,7 @@ const discountAmount = originalTotal - discountedTotal;
           <td className="py-3 px-4 border-b border-r">{index + 1}</td>
           <td className="py-3 px-4 border-b border-r">{item.name}</td>
           <td className="py-3 px-4 border-b border-r">
-            <input
+            <Input
               type="number"
               min="0"
               value={item.quantity500ml}
@@ -400,7 +400,7 @@ const discountAmount = originalTotal - discountedTotal;
             />
           </td>
           <td className="py-3 px-4 border-b border-r">
-            <input
+            <Input
               type="number"
               min="0"
               value={item.quantity1000ml}
@@ -466,7 +466,7 @@ const discountAmount = originalTotal - discountedTotal;
                           >
                             <Minus className="h-4 w-4" />
                           </button>
-                          <input
+                          <Input
                             type="number"
                             min="0"
                             value={item.quantity500ml}
@@ -493,7 +493,7 @@ const discountAmount = originalTotal - discountedTotal;
                           >
                             <Minus className="h-4 w-4" />
                           </button>
-                          <input
+                          <Input
                             type="number"
                             min="0"
                             value={item.quantity1000ml}
@@ -547,7 +547,7 @@ const discountAmount = originalTotal - discountedTotal;
                       <td className="py-3 px-4 border-b border-r">{index + 1}</td>
                       <td className="py-3 px-4 border-b border-r">{item.name}</td>
                       <td className="py-3 px-4 border-b border-r">
-                        <input
+                        <Input
                           type="number"
                           min="0"
                           value={item.quantity500ml}
@@ -556,7 +556,7 @@ const discountAmount = originalTotal - discountedTotal;
                         />
                       </td>
                       <td className="py-3 px-4 border-b border-r">
-                        <input
+                        <Input
                           type="number"
                           min="0"
                           value={item.quantity1000ml}
@@ -683,19 +683,19 @@ const discountAmount = originalTotal - discountedTotal;
               <h3 className="text-lg font-medium mb-2">Payment Method</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="border rounded-lg p-4 flex items-center cursor-pointer bg-teal-50 border-teal-500">
-                  <input type="radio" id="cod" name="payment" checked readOnly className="mr-2" />
+                  <Input type="radio" id="cod" name="payment" checked readOnly className="mr-2" />
                   <label htmlFor="cod" className="cursor-pointer">
                     Cash on Delivery
                   </label>
                 </div>
                 <div className="border rounded-lg p-4 flex items-center cursor-pointer">
-                  <input type="radio" id="online" name="payment" disabled className="mr-2" />
+                  <Input type="radio" id="online" name="payment" disabled className="mr-2" />
                   <label htmlFor="online" className="cursor-pointer text-gray-500">
                     Online Payment (Coming Soon)
                   </label>
                 </div>
                 <div className="border rounded-lg p-4 flex items-center cursor-pointer">
-                  <input type="radio" id="wallet" name="payment" disabled className="mr-2" />
+                  <Input type="radio" id="wallet" name="payment" disabled className="mr-2" />
                   <label htmlFor="wallet" className="cursor-pointer text-gray-500">
                     Wallet (Coming Soon)
                   </label>

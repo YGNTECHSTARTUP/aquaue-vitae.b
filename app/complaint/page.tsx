@@ -100,7 +100,7 @@ export default function ComplaintPage() {
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Full Name
                 </label>
-                <input
+                <Input
                   type="text"
                   id="name"
                   name="name"
@@ -115,7 +115,7 @@ export default function ComplaintPage() {
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email Address
                 </label>
-                <input
+                <Input
                   type="email"
                   id="email"
                   name="email"
@@ -130,7 +130,7 @@ export default function ComplaintPage() {
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                   Phone Number
                 </label>
-                <input
+                <Input
                   type="tel"
                   id="phone"
                   name="phone"
@@ -145,7 +145,7 @@ export default function ComplaintPage() {
                 <label htmlFor="orderNumber" className="block text-sm font-medium text-gray-700 mb-1">
                   Order Number (if applicable)
                 </label>
-                <input
+                <Input
                   type="text"
                   id="orderNumber"
                   name="orderNumber"

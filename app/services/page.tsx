@@ -12,31 +12,25 @@ export default function ServicesPage() {
   const products = [
     {
       id: 1,
-      name: "Aquae-vitae Packaged Drinking Water",
+      name: "Aquae-vitae's Alkaline With Added Minerals ",
       description: "Pure, safe and healthy drinking water for your daily needs.",
-      sizes: ["250ml", "500ml", "1L", "2L", "5L", "20L"],
-      image: "/placeholder.svg?height=300&width=300",
+      sizes: [ "500ml", "1L"],
+      image: "/ban1.jpg",
     },
     {
       id: 2,
-      name: "Vedica - Himalayan Spring Water",
-      description: "Natural mineral water sourced from the Himalayas.",
+      name: "Aquae-vitae's B (Boiled) Water",
+      description: "Boiled Water for your balenced needs",
       sizes: ["500ml", "1L"],
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/ban2.jpg",
     },
-    {
-      id: 3,
-      name: "Aquae-vitae Soda",
-      description: "Refreshing carbonated water for mixing or enjoying on its own.",
-      sizes: ["250ml", "500ml", "1L"],
-      image: "/placeholder.svg?height=300&width=300",
-    },
+   
   ]
 
   const services = [
     {
       id: 1,
-      name: "Home Delivery",
+      name: "Free Delivery",
       description: "Get Aquae-vitae products delivered right to your doorstep with our convenient home delivery service.",
       image: "/placeholder.svg?height=200&width=200",
     },
@@ -53,12 +47,6 @@ export default function ServicesPage() {
       description: "Bulk water supply for offices, events, and corporate functions with customized delivery schedules.",
       image: "/placeholder.svg?height=200&width=200",
     },
-    {
-      id: 4,
-      name: "Water Dispensers",
-      description: "Rent or purchase water dispensers for convenient access to chilled or room temperature water.",
-      image: "/placeholder.svg?height=200&width=200",
-    },
   ]
 
   return (
@@ -67,16 +55,16 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <span className="text-sm text-gray-600">Your Location: </span>
-            <span className="font-medium">{location}</span>
+            <span className="font-medium">{location?.city}</span>
           </div>
           <div className="flex items-center space-x-6">
             <a href="tel:18001211007" className="flex items-center text-sm">
               <span className="mr-2">📞</span>
-              1800 121 1007
+              7569232144
             </a>
-            <a href="mailto:wecare@Aquae-vitae.co.in" className="flex items-center text-sm">
+            <a href="mailto:sagarkum.penki@gmail.com" className="flex items-center text-sm">
               <span className="mr-2">✉️</span>
-              wecare@Aquae-vitae.co.in
+              sagarkum.penki@gmail.com
             </a>
           </div>
         </div>
@@ -143,7 +131,7 @@ export default function ServicesPage() {
                 >
                   <div className="p-6">
                     <div className="flex justify-center mb-4">
-                      <img
+                      <Image
                         src={service.image || "/placeholder.svg"}
                         alt={service.name}
                         className="h-32 object-contain"

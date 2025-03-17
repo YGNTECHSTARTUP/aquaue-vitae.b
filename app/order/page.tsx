@@ -74,8 +74,9 @@ console.log(hasHydrated)
  
 
   // Calculate totals
-  const total500ml = orderItems.reduce((sum, item) => sum + item.quantity500ml, 0)
-  const total1000ml = orderItems.reduce((sum, item) => sum + item.quantity1000ml, 0)
+  // const total500ml = orderItems.reduce((sum, item) => sum + item.quantity500ml, 0)
+  // const total1000ml = orderItems.reduce((sum, item) => sum + item.quantity1000ml, 0)
+  
   const totalAmount = orderItems.reduce(
     (sum, item) => sum + item.quantity500ml * item.price500ml + item.quantity1000ml * item.price1000ml,
     0,
@@ -92,14 +93,14 @@ console.log(hasHydrated)
     )
   }
 
-  const handleBulkQuantityChange = (size: "500ml" | "1000ml", value: number) => {
-    setOrderItems((prev) =>
-      prev.map((item) => ({
-        ...item,
-        [`quantity${size}`]: value,
-      })),
-    )
-  }
+  // const handleBulkQuantityChange = (size: "500ml" | "1000ml", value: number) => {
+  //   setOrderItems((prev) =>
+  //     prev.map((item) => ({
+  //       ...item,
+  //       [`quantity${size}`]: value,
+  //     })),
+  //   )
+  // }
 
   const isLocationFormValid = () => {
     return locationDetails.state && locationDetails.district && locationDetails.mandal && locationDetails.village
@@ -166,6 +167,23 @@ console.log(hasHydrated)
     // Save the PDF
     doc.save("Aquae-vitae-order-receipt.pdf")
   }
+  const DISCOUNT_500ML = 0.45;
+const DISCOUNT_1000ML = 0.30;
+
+const total500ml = orderItems.reduce((sum, item) => sum + item.quantity500ml, 0);
+const total1000ml = orderItems.reduce((sum, item) => sum + item.quantity1000ml, 0);
+const originalTotal = orderItems.reduce(
+  (sum, item) => sum + item.quantity500ml * item.price500ml + item.quantity1000ml * item.price1000ml,
+  0,
+);
+const discountedTotal = orderItems.reduce(
+  (sum, item) =>
+    sum +
+    item.quantity500ml * item.price500ml * (1 - DISCOUNT_500ML) +
+    item.quantity1000ml * item.price1000ml * (1 - DISCOUNT_1000ML),
+  0,
+);
+const discountAmount = originalTotal - discountedTotal;
 
   return (
     <main>
@@ -180,7 +198,7 @@ console.log(hasHydrated)
               <span className="mr-2">📞</span>
               7569232144
             </a>
-            <a href="mailto:wecare@Aquae-vitae.co.in" className="flex items-center text-sm">
+            <a href="mailto:sagarkum.penki@gmail.com" className="flex items-center text-sm">
               <span className="mr-2">✉️</span>
               sagarkum.penki@gmail.com
             </a>
@@ -351,54 +369,85 @@ console.log(hasHydrated)
             <h2 className="text-xl font-semibold mb-4">Place Your Order</h2>
 
             {/* Bulk quantity inputs */}
-            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-              <h3 className="text-lg font-medium mb-3">Quick Order (All Products)</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="bulk500ml" className="block text-sm font-medium text-gray-700 mb-1">
-                    Set quantity for all 500ml bottles
-                  </label>
-                  <div className="flex">
-                    <input
-                      type="number"
-                      id="bulk500ml"
-                      min="0"
-                      value={orderItems[0].quantity500ml}
-                      onChange={(e) => handleBulkQuantityChange("500ml", Number.parseInt(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    />
-                    <button
-                      onClick={() => handleBulkQuantityChange("500ml", 0)}
-                      className="bg-gray-200 px-4 py-2 rounded-r-md hover:bg-gray-300"
-                    >
-                      Reset
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="bulk1000ml" className="block text-sm font-medium text-gray-700 mb-1">
-                    Set quantity for all 1000ml bottles
-                  </label>
-                  <div className="flex">
-                    <input
-                      type="number"
-                      id="bulk1000ml"
-                      min="0"
-                      value={orderItems[0].quantity1000ml}
-                      onChange={(e) => handleBulkQuantityChange("1000ml", Number.parseInt(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    />
-                    <button
-                      onClick={() => handleBulkQuantityChange("1000ml", 0)}
-                      className="bg-gray-200 px-4 py-2 rounded-r-md hover:bg-gray-300"
-                    >
-                      Reset
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="mb-8 overflow-x-auto">
+  <h3 className="text-lg font-medium mb-3">Order Summary</h3>
+  <table className="min-w-full border border-gray-200">
+    <thead>
+      <tr className="bg-gray-50">
+        <th className="py-3 px-4 border-b border-r text-left">S.No</th>
+        <th className="py-3 px-4 border-b border-r text-left">Product</th>
+        <th className="py-3 px-4 border-b border-r text-center">
+          <div>500ml</div>
+          <div className="text-xs text-gray-500">₹10-15 per unit</div>
+        </th>
+        <th className="py-3 px-4 border-b border-r text-center">
+          <div>1000ml</div>
+          <div className="text-xs text-gray-500">₹20-30 per unit</div>
+        </th>
+        <th className="py-3 px-4 border-b border-r text-center">Total 500ml</th>
+        <th className="py-3 px-4 border-b border-r text-center">Total 1000ml</th>
+        <th className="py-3 px-4 border-b text-center">Total Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {orderItems.map((item, index) => (
+        <tr key={item.id} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+          <td className="py-3 px-4 border-b border-r">{index + 1}</td>
+          <td className="py-3 px-4 border-b border-r">{item.name}</td>
+          <td className="py-3 px-4 border-b border-r">
+            <input
+              type="number"
+              min="0"
+              value={item.quantity500ml}
+              onChange={(e) => handleQuantityChange(item.id, "500ml", Number.parseInt(e.target.value) || 0)}
+              className="w-20 px-2 py-1 border rounded text-center"
+            />
+          </td>
+          <td className="py-3 px-4 border-b border-r">
+            <input
+              type="number"
+              min="0"
+              value={item.quantity1000ml}
+              onChange={(e) => handleQuantityChange(item.id, "1000ml", Number.parseInt(e.target.value) || 0)}
+              className="w-20 px-2 py-1 border rounded text-center"
+            />
+          </td>
+          <td className="py-3 px-4 border-b border-r text-center">
+            ₹{(item.quantity500ml * item.price500ml * (1 - DISCOUNT_500ML)).toFixed(2)}
+          </td>
+          <td className="py-3 px-4 border-b border-r text-center">
+            ₹{(item.quantity1000ml * item.price1000ml * (1 - DISCOUNT_1000ML)).toFixed(2)}
+          </td>
+          <td className="py-3 px-4 border-b text-center">
+            ₹{(
+              item.quantity500ml * item.price500ml * (1 - DISCOUNT_500ML) +
+              item.quantity1000ml * item.price1000ml * (1 - DISCOUNT_1000ML)
+            ).toFixed(2)}
+          </td>
+        </tr>
+      ))}
+      <tr className="bg-teal-50 font-medium">
+        <td className="py-3 px-4 border-b border-r" colSpan={2}>
+          Total
+        </td>
+        <td className="py-3 px-4 border-b border-r text-center">{total500ml}</td>
+        <td className="py-3 px-4 border-b border-r text-center">{total1000ml}</td>
+        <td className="py-3 px-4 border-b border-r text-center">
+          ₹{orderItems.reduce((sum, item) => sum + item.quantity500ml * item.price500ml * (1 - DISCOUNT_500ML), 0).toFixed(2)}
+        </td>
+        <td className="py-3 px-4 border-b border-r text-center">
+          ₹{orderItems.reduce((sum, item) => sum + item.quantity1000ml * item.price1000ml * (1 - DISCOUNT_1000ML), 0).toFixed(2)}
+        </td>
+        <td className="py-3 px-4 border-b text-center">₹{discountedTotal.toFixed(2)}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div className="mt-4 p-4 bg-gray-50 rounded-lg">
+  <p>Original Total: ₹{originalTotal.toFixed(2)}</p>
+  <p>Discount: ₹{discountAmount.toFixed(2)}</p>
+  <p>Final Total: ₹{discountedTotal.toFixed(2)}</p>
+</div>
 
             {/* Product cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

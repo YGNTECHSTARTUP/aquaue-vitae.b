@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Banner() {
   return (
@@ -17,9 +18,12 @@ export default function Banner() {
             <h1 className="text-4xl md:text-6xl font-bold mb-4">#AQUAREVIVE</h1>
             <p className="text-xl md:text-2xl mb-6"> Providing Safe and Healthy Drinking Water for Communities</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-teal-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors">
+             <Link href="/order">
+             <button className="bg-white text-teal-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors">
                 Order Now
               </button>
+             </Link>
+              
               <button className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-teal-600 transition-colors">
                 Learn More
               </button>

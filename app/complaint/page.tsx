@@ -56,16 +56,16 @@ export default function ComplaintPage() {
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <span className="text-sm text-gray-600">Your Location: </span>
-            <span className="font-medium">{location}</span>
+            <span className="font-medium">{location?.city}</span>
           </div>
           <div className="flex items-center space-x-6">
             <a href="tel:18001211007" className="flex items-center text-sm">
               <span className="mr-2">📞</span>
-              1800 121 1007
+              7569232144
             </a>
-            <a href="mailto:wecare@Aquae-vitae.co.in" className="flex items-center text-sm">
+            <a href="mailto:sagarkum.penki@gmail.com" className="flex items-center text-sm">
               <span className="mr-2">✉️</span>
-              wecare@Aquae-vitae.co.in
+              sagarkum.penki@gmail.com
             </a>
           </div>
         </div>
